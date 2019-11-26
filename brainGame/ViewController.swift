@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     var score: Int = 0
     
-    let colors: [String:UIColor] = ["red": UIColor.red, "green": UIColor.green, "yellow": UIColor.yellow, "purple": UIColor.purple, "orange": UIColor.orange]
+    let colors: [String:UIColor] = ["red": UIColor.red, "green": UIColor.green, "yellow": UIColor.yellow, "purple": UIColor.purple, "orange": UIColor.orange, "blue": UIColor.blue, "brown": UIColor.brown, "gray": UIColor.gray]
 
     var currentColor: UIColor = UIColor.white
     var currentText: String = ""
@@ -38,8 +38,12 @@ class ViewController: UIViewController {
         meaningLabel.textColor = currentColor
         meaningLabel.text = colors.randomElement()?.key
         
+        if (score <= -1) {
+            scoreLabel.text = "You Lose!"
+        } else {
+            scoreLabel.text = String(score)
+        }
         
-        scoreLabel.text = String(score)
     }
     
     
