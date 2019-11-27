@@ -18,6 +18,7 @@
 		C412C950238D344F00660002 /* textBoxUpsideBg.png in Resources */ = {isa = PBXBuildFile; fileRef = C412C94F238D344F00660002 /* textBoxUpsideBg.png */; };
 		C412C958238D498B00660002 /* resultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412C957238D498B00660002 /* resultViewController.swift */; };
 		C471AFE0238E3E8000713D82 /* viewBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C471AFDF238E3E8000713D82 /* viewBg.jpg */; };
+		C471AFE2238E501E00713D82 /* brainIcon-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = C471AFE1238E501E00713D82 /* brainIcon-120x120.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C412C94F238D344F00660002 /* textBoxUpsideBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textBoxUpsideBg.png; sourceTree = "<group>"; };
 		C412C957238D498B00660002 /* resultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultViewController.swift; sourceTree = "<group>"; };
 		C471AFDF238E3E8000713D82 /* viewBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = viewBg.jpg; sourceTree = "<group>"; };
+		C471AFE1238E501E00713D82 /* brainIcon-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brainIcon-120x120.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				C412C957238D498B00660002 /* resultViewController.swift */,
 				C40D1E82238CA2DA00FDB7E6 /* Main.storyboard */,
 				C40D1E85238CA2DB00FDB7E6 /* Assets.xcassets */,
+				C471AFE1238E501E00713D82 /* brainIcon-120x120.png */,
 				C471AFDF238E3E8000713D82 /* viewBg.jpg */,
 				C412C94F238D344F00660002 /* textBoxUpsideBg.png */,
 				C412C94D238D33E100660002 /* textBoxBackground.png */,
@@ -247,6 +250,7 @@
 				C471AFE0238E3E8000713D82 /* viewBg.jpg in Resources */,
 				C40D1E84238CA2DA00FDB7E6 /* Main.storyboard in Resources */,
 				C412C950238D344F00660002 /* textBoxUpsideBg.png in Resources */,
+				C471AFE2238E501E00713D82 /* brainIcon-120x120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

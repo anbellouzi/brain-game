@@ -20,8 +20,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var upsideImageView: UIImageView!
     
     @IBOutlet weak var upImageView: UIImageView!
+    @IBOutlet weak var timerLabel: UILabel!
+    
     var score: Int = 0
     var highScore: Int = 0
+    var timerCount: Int = 10
+    var message: String = "Game Over!"
     
     let colors: [String:UIColor] = ["red": .red,
                                     "green": .green,
@@ -40,6 +44,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupScene()
         refreshGame()
+        runTimer()
     }
     
     // pass high score to result view
@@ -47,6 +52,7 @@ class ViewController: UIViewController {
         if segue.identifier == "showEndGame" {
             if let resultViewController = segue.destination as? resultViewController {
                     resultViewController.highScore = self.highScore
+                    resultViewController.message = self.message
             }
         }
     }
@@ -61,16 +67,42 @@ class ViewController: UIViewController {
         noButton.layer.cornerRadius = 5
         yesButton.backgroundColor = UIColor.init(displayP3Red: 30, green: 30, blue: 30, alpha: 0.4)
         noButton.backgroundColor = UIColor.init(displayP3Red: 30, green: 30, blue: 30, alpha: 0.4)
+        scoreLabel.backgroundColor = UIColor.init(displayP3Red: 0, green: 0, blue: 0, alpha: 0.2)
+        scoreLabel.textColor = UIColor(white: 1, alpha: 0.5)
+        timerLabel.backgroundColor = UIColor.init(displayP3Red: 0, green: 0, blue: 0, alpha: 0.2)
+        timerLabel.textColor = UIColor(white: 1, alpha: 0.5)
         sceneView.backgroundColor = UIColor(patternImage: UIImage(named: "viewBg.jpg")!)
-        
         upsideImageView.image = upsideImageView.image?.withRenderingMode(.alwaysTemplate)
         upImageView.image = upImageView.image?.withRenderingMode(.alwaysTemplate)
-        
-        
     }
-
+    
+    func runTimer() {
+        _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            self.timerCount -= 1
+            self.timerLabel.text = "Time  "+String(self.timerCount)+""
+            
+            if self.timerCount == 0 {
+                self.timerCount = 0
+                timer.invalidate()
+                self.message = "Time is Up!"
+                self.performSegue(withIdentifier: "showEndGame", sender: self)
+                
+            }
+        }
+    }
+    
+    func IncreaseDiffculty() {
+        if score  > 50 {
+            timerCount = 5
+        }
+        else {
+            timerCount = 10
+        }
+    }
+    
     // controls current game attributes
     func refreshGame(){
+        IncreaseDiffculty()
         currentText = colors.randomElement()!.key
         currentColor = colors.randomElement()!.value
         let randomColor = colors.randomElement()?.key
@@ -84,23 +116,25 @@ class ViewController: UIViewController {
         
         if (score <= -1) {
             score = 0
-            scoreLabel.text = String(highScore)
+            scoreLabel.text = "HighScore   "+String(highScore)+""
+            self.timerCount = 0
             performSegue(withIdentifier: "showEndGame", sender: self)
             
         } else {
-            scoreLabel.text = String(score)
+            scoreLabel.text = "Score  "+String(score)+""
         }
     }
     
     // yes button
     @IBAction func yesActionButtton(_ sender: Any) {
         if(colors[currentText] == currentColor) {
-            score += 500
-            highScore += 500
+            score += 10
+            highScore += 10
         }
         else {
-            score -= 500
+            score -= 20
         }
+        
         refreshGame()
         
     }
@@ -108,11 +142,11 @@ class ViewController: UIViewController {
     // no button
     @IBAction func noActionButton(_ sender: Any) {
         if(colors[currentText] != currentColor) {
-            score += 500
-            highScore += 500
+            score += 10
+            highScore += 10
         }
         else {
-            score -= 500
+            score -= 20
         }
         refreshGame()
     }

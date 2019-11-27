@@ -13,8 +13,10 @@ class resultViewController: UIViewController {
     @IBOutlet var sceneView: UIView!
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
     var highScore: Int = 0
+    var message: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class resultViewController: UIViewController {
     }
     
     func setupScene() {
+        messageLabel.text = message
         playAgainButton.layer.masksToBounds = true
         playAgainButton.layer.cornerRadius = 20
         
