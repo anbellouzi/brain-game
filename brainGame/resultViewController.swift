@@ -15,6 +15,8 @@ class resultViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
+    
+    
     var highScore: Int = 0
     var message: String = ""
     
@@ -33,8 +35,19 @@ class resultViewController: UIViewController {
         playAgainButton.backgroundColor = UIColor.init(displayP3Red: 30, green: 30, blue: 30, alpha: 0.4)
         sceneView.backgroundColor = UIColor(patternImage: UIImage(named: "viewBg.jpg")!)
         
-        scoreLabel.text = String(highScore)
+        scoreLabel.text = String(highScore)+" points"
     }
+    
+    @IBAction func playAgain(_ sender: Any) {
+        let navigationController = self.presentingViewController as? UINavigationController
+
+        self.dismiss(animated: false) {
+          let _ = navigationController?.popToRootViewController(animated: false)
+        }
+        
+        
+    }
+    
     
     
  

@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var upImageView: UIImageView!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
     var score: Int = 0
     var highScore: Int = 0
@@ -53,9 +54,12 @@ class ViewController: UIViewController {
             if let resultViewController = segue.destination as? resultViewController {
                     resultViewController.highScore = self.highScore
                     resultViewController.message = self.message
+                
             }
         }
     }
+    
+   
     
     // style for user view
     func setupScene() {
@@ -88,12 +92,44 @@ class ViewController: UIViewController {
                 self.performSegue(withIdentifier: "showEndGame", sender: self)
                 
             }
+            if self.timerCount < 5 {
+                self.messageLabel.text = ""
+                self.messageLabel.font = UIFont.systemFont(ofSize: 35)
+                self.animate(time: "0:"+String(self.timerCount))
+                self.messageLabel.textColor = self.colors.randomElement()?.value
+            }
         }
     }
     
+    func animate(time: String) {
+     // Fade out to set the text
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.messageLabel.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+
+                //Once the label is completely invisible, set the text and fade it back in
+                self.messageLabel.text = time
+
+                // Fade in
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+                    self.messageLabel.alpha = 1.0
+                    }, completion: nil)
+        })
+    }
+    
     func IncreaseDiffculty() {
-        if score  > 50 {
-            timerCount = 5
+        if (score  > 50) && (score <= 100){
+            timerCount = 8
+        }
+        else if (score > 100) && (score <= 150){
+            timerCount = 6
+        }
+        else if (score > 150) && (score <= 200){
+            timerCount = 4
+        }
+        else if (score > 200) && (score < 250){
+            timerCount = 2
         }
         else {
             timerCount = 10
