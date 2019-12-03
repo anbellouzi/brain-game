@@ -23,7 +23,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
-    var score: Int = 0
+    var score: Int = 0 {
+        didSet {
+            self.messageLabel.font = UIFont.systemFont(ofSize: 35)
+        }
+        
+    }
     var highScore: Int = 0
     var timerCount: Int = 10
     var message: String = "Game Over!"
@@ -98,7 +103,7 @@ class ViewController: UIViewController {
     func runTimer() {
         _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             self.timerCount -= 1
-            self.timerLabel.text = "Time  "+String(self.timerCount)+""
+            self.timerLabel.text = "Time  0:0"+String(self.timerCount)+""
             
             if self.timerCount == 0 {
                 self.timerCount = 0
@@ -110,7 +115,7 @@ class ViewController: UIViewController {
             if self.timerCount < 5 {
                 self.messageLabel.text = ""
                 self.messageLabel.font = UIFont.systemFont(ofSize: 35)
-                self.animate(time: "0:"+String(self.timerCount))
+                self.animate(time: "0:0"+String(self.timerCount))
                 self.messageLabel.textColor = self.colors.randomElement()?.value
             }
         }
@@ -165,6 +170,7 @@ class ViewController: UIViewController {
         upsideImageView.tintColor = colors.randomElement()!.value
         upImageView.tintColor = colors[currentText]
         
+        
         if (score <= -1) {
             score = 0
             scoreLabel.text = "HighScore   "+String(highScore)+""
@@ -179,11 +185,12 @@ class ViewController: UIViewController {
     // yes button
     @IBAction func yesActionButtton(_ sender: Any) {
         if(colors[currentText] == currentColor) {
-            score += 10
-            highScore += 10
+            
+            self.check(winOrLose: true)
         }
         else {
-            score -= 20
+            
+            self.check(winOrLose: false)
         }
         
         refreshGame()
@@ -193,13 +200,50 @@ class ViewController: UIViewController {
     // no button
     @IBAction func noActionButton(_ sender: Any) {
         if(colors[currentText] != currentColor) {
-            score += 10
-            highScore += 10
+            self.check(winOrLose: true)
         }
         else {
-            score -= 20
+            
+            self.check(winOrLose: false)
         }
         refreshGame()
+    }
+    
+
+    // user clicks wrong answer
+    func check(winOrLose:Bool) {
+        var color:UIColor = .white
+        var messageStr:String = ""
+        
+        if (winOrLose == true) {
+            self.score += 10
+            self.highScore += 10
+            color = .green
+            messageStr = "Correct! +10"
+        }
+        else {
+            self.score -= 20
+            color = .red
+            messageStr = "Wrong! -20"
+        }
+        
+        
+//        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+//            self.messageLabel.alpha = 0.0
+//            }, completion: {
+//                (finished: Bool) -> Void in
+//
+//
+//                self.messageLabel.textColor = color
+//                self.messageLabel.text = messageStr
+//
+//                // Fade in
+//                UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+//                    self.messageLabel.alpha = 1.0
+//                    }, completion: nil)
+//        })
+        
+        self.animate(time: messageStr)
     }
 }
 

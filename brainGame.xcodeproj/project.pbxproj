@@ -19,6 +19,7 @@
 		C412C958238D498B00660002 /* resultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412C957238D498B00660002 /* resultViewController.swift */; };
 		C471AFE0238E3E8000713D82 /* viewBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C471AFDF238E3E8000713D82 /* viewBg.jpg */; };
 		C471AFE2238E501E00713D82 /* brainIcon-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = C471AFE1238E501E00713D82 /* brainIcon-120x120.png */; };
+		C4B668F12396637800F0A804 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B668F02396637800F0A804 /* icon.png */; };
 		C4BCC7962395A00A004C6E0C /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BCC7952395A00A004C6E0C /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		C412C957238D498B00660002 /* resultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultViewController.swift; sourceTree = "<group>"; };
 		C471AFDF238E3E8000713D82 /* viewBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = viewBg.jpg; sourceTree = "<group>"; };
 		C471AFE1238E501E00713D82 /* brainIcon-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brainIcon-120x120.png"; sourceTree = "<group>"; };
+		C4B668F02396637800F0A804 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		C4BCC7952395A00A004C6E0C /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				C412C957238D498B00660002 /* resultViewController.swift */,
 				C40D1E82238CA2DA00FDB7E6 /* Main.storyboard */,
 				C40D1E85238CA2DB00FDB7E6 /* Assets.xcassets */,
+				C4B668F02396637800F0A804 /* icon.png */,
 				C471AFE1238E501E00713D82 /* brainIcon-120x120.png */,
 				C471AFDF238E3E8000713D82 /* viewBg.jpg */,
 				C412C94F238D344F00660002 /* textBoxUpsideBg.png */,
@@ -251,6 +254,7 @@
 				C40D1E86238CA2DB00FDB7E6 /* Assets.xcassets in Resources */,
 				C412C94E238D33E100660002 /* textBoxBackground.png in Resources */,
 				C471AFE0238E3E8000713D82 /* viewBg.jpg in Resources */,
+				C4B668F12396637800F0A804 /* icon.png in Resources */,
 				C40D1E84238CA2DA00FDB7E6 /* Main.storyboard in Resources */,
 				C412C950238D344F00660002 /* textBoxUpsideBg.png in Resources */,
 				C471AFE2238E501E00713D82 /* brainIcon-120x120.png in Resources */,
