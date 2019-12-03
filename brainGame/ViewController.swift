@@ -121,7 +121,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func animate(time: String) {
+    func animate(time: String, color:UIColor = .white) {
      // Fade out to set the text
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.messageLabel.alpha = 0.0
@@ -129,6 +129,9 @@ class ViewController: UIViewController {
                 (finished: Bool) -> Void in
 
                 //Once the label is completely invisible, set the text and fade it back in
+                if ((color == .green) || (color == .red)){
+                    self.messageLabel.textColor = color
+                }
                 self.messageLabel.text = time
 
                 // Fade in
@@ -227,23 +230,8 @@ class ViewController: UIViewController {
             messageStr = "Wrong! -20"
         }
         
-        
-//        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
-//            self.messageLabel.alpha = 0.0
-//            }, completion: {
-//                (finished: Bool) -> Void in
-//
-//
-//                self.messageLabel.textColor = color
-//                self.messageLabel.text = messageStr
-//
-//                // Fade in
-//                UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-//                    self.messageLabel.alpha = 1.0
-//                    }, completion: nil)
-//        })
-        
-        self.animate(time: messageStr)
+
+        self.animate(time: messageStr, color: color)
     }
 }
 
