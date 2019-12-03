@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Brain Game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="brainGame" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75I-ck-fu7">
-                                <rect key="frame" x="72" y="509" width="231" height="90"/>
+                                <rect key="frame" x="72" y="407" width="231" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.04830961332" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -175,7 +175,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="xpF-gp-Nfn"/>
+                    <navigationItem key="navigationItem" title="Brain Game" leftItemsSupplementBackButton="YES" id="xpF-gp-Nfn"/>
                     <connections>
                         <outlet property="colorTextLabel" destination="75I-ck-fu7" id="NwR-98-IdL"/>
                         <outlet property="meaningLabel" destination="DAV-A6-tlD" id="Z4P-kf-Lwy"/>
@@ -187,7 +187,7 @@
                         <outlet property="upImageView" destination="P0Z-cw-chb" id="ShP-mh-aJY"/>
                         <outlet property="upsideImageView" destination="Yg3-qc-4y4" id="Lg7-aM-ZlW"/>
                         <outlet property="yesButton" destination="gbl-Hj-imz" id="2RL-Bo-9kI"/>
-                        <segue destination="Lpb-iw-S0F" kind="showDetail" identifier="showEndGame" destinationCreationSelector="showEndGame" id="iiz-TS-FkC"/>
+                        <segue destination="Lpb-iw-S0F" kind="show" identifier="showEndGame" destinationCreationSelector="showEndGame" id="iiz-TS-FkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -199,17 +199,17 @@
             <objects>
                 <viewController id="Lpb-iw-S0F" customClass="resultViewController" customModule="brainGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FVU-8C-IgW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRu-Z7-yhK">
-                                <rect key="frame" x="157.66666666666666" y="347" width="60" height="30"/>
+                                <rect key="frame" x="157.66666666666666" y="418" width="60" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oX2-DV-p8Y">
-                                <rect key="frame" x="107.66666666666669" y="407" width="160" height="60"/>
+                                <rect key="frame" x="107.66666666666669" y="478" width="160" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="VNJ-6y-kmi"/>
                                     <constraint firstAttribute="width" constant="160" id="zLn-YC-Pke"/>
@@ -217,10 +217,11 @@
                                 <state key="normal" title="Play Again!"/>
                                 <connections>
                                     <action selector="playAgain:" destination="Lpb-iw-S0F" eventType="touchUpInside" id="g8I-XE-sR0"/>
+                                    <segue destination="QWd-kz-Aja" kind="unwind" unwindAction="unwidToStartWithSegue:" id="ofJ-BK-e8C"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYY-Mk-0dW">
-                                <rect key="frame" x="70.666666666666686" y="149.66666666666666" width="234" height="48"/>
+                                <rect key="frame" x="70.666666666666686" y="220.66666666666666" width="234" height="47.999999999999972"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="3DQ-It-89Y"/>
                                     <constraint firstAttribute="width" constant="234" id="Sft-Wt-4Po"/>
@@ -230,7 +231,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your High Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETM-uZ-y3T">
-                                <rect key="frame" x="100.66666666666669" y="257.66666666666669" width="174" height="29.333333333333314"/>
+                                <rect key="frame" x="100.66666666666669" y="328.66666666666669" width="174" height="29.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29.5" id="QsI-Ke-LdZ"/>
                                     <constraint firstAttribute="width" constant="174" id="h7j-Ma-5uG"/>
@@ -262,6 +263,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZy-ax-7oa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QWd-kz-Aja" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3130.4000000000001" y="111.99400299850076"/>
         </scene>

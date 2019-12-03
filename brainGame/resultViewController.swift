@@ -20,6 +20,21 @@ class resultViewController: UIViewController {
     var highScore: Int = 0
     var message: String = ""
     
+    // view will appear
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+        // hide navbar
+      navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        // Show the navigation bar on other view controllers
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -39,13 +54,13 @@ class resultViewController: UIViewController {
     }
     
     @IBAction func playAgain(_ sender: Any) {
-        let navigationController = self.presentingViewController as? UINavigationController
-
-        self.dismiss(animated: false) {
-          let _ = navigationController?.popToRootViewController(animated: false)
-        }
-        
-        
+//        let navigationController = self.presentingViewController as? UINavigationController
+//
+//        self.dismiss(animated: false) {
+//          let _ = navigationController?.popToRootViewController(animated: false)
+//        }
+//
+//
     }
     
     

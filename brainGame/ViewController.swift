@@ -39,6 +39,21 @@ class ViewController: UIViewController {
 
     var currentColor: UIColor = UIColor.white
     var currentText: String = ""
+    
+    // view will appear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // hide navbar 
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        // Show the navigation bar on other view controllers
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
 
     // loads the view
     override func viewDidLoad() {

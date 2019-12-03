@@ -9,7 +9,23 @@
 import UIKit
 
 class StartViewController: UIViewController {
+    
+    
+    // hide navbar
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+       // hide navbar
+       navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
 
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        // Show the navigation bar on other view controllers
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "viewBg.jpg")!)
@@ -17,9 +33,8 @@ class StartViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func unwidToStart(segue:UIStoryboardSegue) {
-           
-       }
+    // root view exit
+    @IBAction func unwidToStart(segue:UIStoryboardSegue) {}
 
     /*
     // MARK: - Navigation
